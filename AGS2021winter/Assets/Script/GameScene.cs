@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameScene : MonoBehaviour
 {
-    public int cnt = 0;
+    private int cnt = 0;
+
+    [SerializeField] GameObject panel;
+
     // Update is called once per frame
     void Update()
     {
@@ -15,5 +18,14 @@ public class GameScene : MonoBehaviour
         {
             SceneManager.LoadScene("ResultScene");
         }
+    }
+
+    public void OnClickMenuButton()
+    {
+        panel.gameObject.SetActive(true);
+    }
+    public void OnClickGameButton()
+    {
+        panel.gameObject.SetActive(false);
     }
 }
