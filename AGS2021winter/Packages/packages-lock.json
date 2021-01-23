@@ -7,6 +7,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.editorcoroutines": {
+      "version": "0.1.0-preview.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 1,
@@ -40,6 +47,13 @@
     "com.unity.mobile.notifications": {
       "version": "1.0.3",
       "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.purchasing": {
+      "version": "2.0.6",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -78,6 +92,26 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0"
       }
+    },
+    "io.gs2.unity.sdk": {
+      "version": "2020.11.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.purchasing": "2.0.6"
+      },
+      "url": "https://upm.gs2.io/npm"
+    },
+    "io.gs2.unity.weave.editor-extension": {
+      "version": "1.0.22",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.editorcoroutines": "0.1.0-preview.2"
+      },
+      "url": "https://upm.gs2.io/npm"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
