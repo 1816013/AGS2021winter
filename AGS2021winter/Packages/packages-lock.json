@@ -132,6 +132,16 @@
       },
       "url": "https://upm.gs2.io/npm"
     },
+    "io.gs2.unity.weave.login": {
+      "version": "1.0.15",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.gs2.unity.weave.credential": "1.0.23",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://upm.gs2.io/npm"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

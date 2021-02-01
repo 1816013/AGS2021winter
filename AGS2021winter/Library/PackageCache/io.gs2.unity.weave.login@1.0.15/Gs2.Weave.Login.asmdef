@@ -1,0 +1,18 @@
+{
+    "name": "Gs2.Weave.Login",
+    "references": [
+        "Gs2",
+        "Gs2.Weave.Core",
+        "Gs2.Weave.Credential"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "WindowsStandalone32"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

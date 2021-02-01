@@ -12,6 +12,7 @@
     "io.gs2.unity.sdk": "2020.11.1",
     "io.gs2.unity.weave.credential": "1.0.23",
     "io.gs2.unity.weave.editor-extension": "1.0.22",
+    "io.gs2.unity.weave.login": "1.0.15",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
