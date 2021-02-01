@@ -17,6 +17,7 @@ public class BreakBlock : MonoBehaviour
     }
     public void OnClickAct()
     {
+        Debug.Log("hit");
         this.gameObject.SetActive(false);
     }
 }
