@@ -151,9 +151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: {x: 20, y: 2, z: 20}
+  worldSize: {x: 9, y: 9}
   block:
-  - {fileID: 8808257815475865258, guid: caf144bc93d0b9743906df29153f1207, type: 3}
-  - {fileID: -8679921383154817045, guid: 48c73f24deb705e42897b4f5dbc9eb7b, type: 3}
+  - {fileID: 999359944540335671, guid: caf144bc93d0b9743906df29153f1207, type: 3}
+  - {fileID: 8164078558771037576, guid: 48c73f24deb705e42897b4f5dbc9eb7b, type: 3}
 --- !u!4 &22735927
 Transform:
   m_ObjectHideFlags: 0
