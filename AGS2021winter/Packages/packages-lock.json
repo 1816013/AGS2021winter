@@ -104,6 +104,25 @@
       },
       "url": "https://upm.gs2.io/npm"
     },
+    "io.gs2.unity.weave.core": {
+      "version": "1.2.7",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "io.gs2.unity.sdk": "2020.7.3"
+      },
+      "url": "https://upm.gs2.io/npm"
+    },
+    "io.gs2.unity.weave.credential": {
+      "version": "1.0.23",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.gs2.unity.weave.core": "1.2.7"
+      },
+      "url": "https://upm.gs2.io/npm"
+    },
     "io.gs2.unity.weave.editor-extension": {
       "version": "1.0.22",
       "depth": 0,

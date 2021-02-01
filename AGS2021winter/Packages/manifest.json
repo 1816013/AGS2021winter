@@ -10,6 +10,7 @@
     "com.unity.timeline": "1.2.15",
     "com.unity.ugui": "1.0.0",
     "io.gs2.unity.sdk": "2020.11.1",
+    "io.gs2.unity.weave.credential": "1.0.23",
     "io.gs2.unity.weave.editor-extension": "1.0.22",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
