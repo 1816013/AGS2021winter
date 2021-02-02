@@ -15,7 +15,9 @@ public class MapGenerator : MonoBehaviour
 
     public Vector3Int mapSize;
     public Vector2Int worldSize;
+    public MapCtl mapCtl;
     public GameObject[] block;
+    Bounds bounds;
     GameObject chunk;
 
     BlockID[][][] mapData;
@@ -31,20 +33,23 @@ public class MapGenerator : MonoBehaviour
         ceilingplane.transform.position = new Vector3(0, 8.0f, 0);
         ceilingplane.transform.rotation = new Quaternion(0, 0, 90, 1);
         //Instantiate(obj,, Quaternion.identity);
-
-        for(int x = 0;x < worldSize.x;x++)
+        for (int x = 0;x < worldSize.x;x++)
         {
             for (int y = 0; y < worldSize.x; y++)
             {
                 MapInit(x);
-                chunk = new GameObject("Chunk" + x.ToString() + y.ToString());
+                var chunkPosX = (((x + 1) / 2) * ((((x + 1) % 2) * 2) - 1));
+                chunk = new GameObject("Chunk" + (4+chunkPosX).ToString() + y.ToString());
+                chunk.tag = "chunk";
                 MapGenerate();
                 var tmpstone = block[0].transform.Find("tmpstone");
-                Debug.Log(tmpstone);
+                //Debug.Log(tmpstone);
                 var tmpdefult = tmpstone.transform.Find("default").gameObject;
-                Debug.Log(tmpdefult);
-                Mesh mesh = tmpdefult.GetComponent<MeshFilter>().sharedMesh;
-                chunk.transform.position = new Vector3((mapSize.x * mesh.bounds.size.x) * (((x+1)/2)*((((x+1)%2)*2)-1)), 0.0f, (mapSize.z * mesh.bounds.size.z) * y);
+                //Debug.Log(tmpdefult);
+                bounds = tmpdefult.GetComponent<MeshFilter>().sharedMesh.bounds;
+                mapCtl.bounds = bounds;
+                chunk.transform.position = new Vector3((mapSize.x * bounds.size.x) * chunkPosX, 0.0f, (mapSize.z * bounds.size.z) * y);
+                mapCtl.chunks[4+chunkPosX][y] = chunk;
             }
         }
     }
@@ -136,6 +141,5 @@ public class MapGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
