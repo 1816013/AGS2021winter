@@ -10,7 +10,7 @@ public class MapCtl : MonoBehaviour
     public Bounds bounds;
     Bounds playerBounds;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         var gameObjects = GameObject.FindGameObjectsWithTag("chunk");
         chunks = new GameObject[chunkSize.x][];

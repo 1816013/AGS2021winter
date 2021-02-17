@@ -10,6 +10,7 @@ public class MapGenerator : MonoBehaviour
         air,
         rail,
         stone,
+        gem,
         max
     }
 
@@ -73,7 +74,14 @@ public class MapGenerator : MonoBehaviour
                     }
                     else
                     {
-                        mapData[x][y][z] = BlockID.stone;
+                        if((Random.value*100)%100 <= 100 - (2 * (chunkCnt)))
+                        {
+                            mapData[x][y][z] = BlockID.stone;
+                        }
+                        else
+                        {
+                            mapData[x][y][z] = BlockID.gem;
+                        }
                     }
                 }
             }
@@ -90,7 +98,14 @@ public class MapGenerator : MonoBehaviour
                         {
                             continue;
                         }
-                        mapData[x][y][z] = BlockID.stone;
+                        if ((Random.value * 100) % 100 <= 95 -(5*chunkCnt))
+                        {
+                            mapData[x][y][z] = BlockID.stone;
+                        }
+                        else
+                        {
+                            mapData[x][y][z] = BlockID.gem;
+                        }
                         if (x == mapSize.x / 2)
                         {
                             if (y == 0)
@@ -117,13 +132,18 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int z = 0; z < mapSize.z; z++)
                 {
-                    var id = mapData[x][y][z]; switch (id)
+                    var id = mapData[x][y][z];
+                    switch (id)
                     {
                         case BlockID.air:
                             break;
                         case BlockID.stone:
                             var stone = Instantiate(block[0], new Vector3((mapSize.x * (block[0].transform.localScale.x * 4)) / 2 - (x * (block[0].transform.localScale.x * 4)) - 2, (y * (block[0].transform.localScale.y * 4)), (mapSize.z * (block[0].transform.localScale.x * 4)) / 2 - (z * (block[0].transform.localScale.z * 4)) - 2), Quaternion.identity);
                             stone.transform.parent = chunk.transform;
+                            break;
+                        case BlockID.gem:
+                            var jem = Instantiate(block[2], new Vector3((mapSize.x * (block[0].transform.localScale.x * 4)) / 2 - (x * (block[0].transform.localScale.x * 4)) - 2, (y * (block[0].transform.localScale.y * 4)), (mapSize.z * (block[0].transform.localScale.x * 4)) / 2 - (z * (block[0].transform.localScale.z * 4)) - 2), Quaternion.identity);
+                            jem.transform.parent = chunk.transform;
                             break;
                         case BlockID.rail:
                             var rail = Instantiate(block[1], new Vector3((mapSize.x * (block[1].transform.localScale.x * 4)) / 2 - (x * (block[1].transform.localScale.x * 4)) - 2, (y * (block[1].transform.localScale.y * 4)), (mapSize.z * (block[1].transform.localScale.z * 4)) / 2 - (z * (block[1].transform.localScale.z * 4)) - 2), Quaternion.identity);
@@ -138,6 +158,15 @@ public class MapGenerator : MonoBehaviour
         }
     }
     
+    BlockID GemGenerator(int chunkId)
+    {
+        switch (chunkId)
+        {
+            case 0:
+                break;
+        }
+        return BlockID.stone;
+    }
     // Update is called once per frame
     void Update()
     {
