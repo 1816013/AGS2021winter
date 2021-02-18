@@ -12,6 +12,8 @@ public class MapGenerator : MonoBehaviour
         stone,
         gem,
         dirt,
+        bedrock,
+        treasure,
         max
     }
 
@@ -19,8 +21,10 @@ public class MapGenerator : MonoBehaviour
     public Vector2Int worldSize;
     public MapCtl mapCtl;
     public GameObject[] block;
-    private float[][] noise;
-    float maxNoize = 0.0f;             //Noise値の最大を保存
+    private float[][] dirtNoise;
+    private float[][] coalNoise;
+    private bool treasure = false;
+    float maxDirtNoise = 0.0f;             //Noise値の最大を保存
     public float scl;
     Bounds bounds;
     GameObject chunk;
@@ -29,64 +33,56 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Mathf.PerlinNoise(0, 0);
+        Init();
+
         GameObject floorplane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         GameObject ceilingplane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        //obj.transform.position = new Vector3((mapSize.x * bounds.size.x*scl)/2, mapSize.y * bounds.size.y*scl, (mapSize.z * bounds.size.z*scl)/2);
-        floorplane.transform.localScale = new Vector3(0.4f * mapSize.x, 1.0f, 0.4f * mapSize.z);
-        floorplane.transform.position = new Vector3(0, 0, 0);
-        ceilingplane.transform.localScale = new Vector3(0.4f * mapSize.x, 1.0f, 0.4f * mapSize.z);
-        ceilingplane.transform.position = new Vector3(0, 8.0f, 0);
+        floorplane.transform.localScale = new Vector3(0.4f * ((mapSize.x*worldSize.x)/2), 1.0f, 0.4f*((mapSize.z * worldSize.y) / 2));
+        floorplane.transform.position = new Vector3(0, 0, ((worldSize.y / 2) * (mapSize.z * bounds.size.z * scl)));
+        ceilingplane.transform.localScale = new Vector3(0.4f * ((mapSize.x * worldSize.x) / 2), 1.0f, 0.4f * ((mapSize.z * worldSize.y) / 2));
+        ceilingplane.transform.position = new Vector3(0,bounds.size.y, ((worldSize.y / 2) * (mapSize.z * bounds.size.z * scl)));
         ceilingplane.transform.rotation = new Quaternion(0, 0, 90, 1);
 
-        block[0].transform.localScale = new Vector3(scl, scl, scl);
-        block[1].transform.localScale = new Vector3(scl, scl, scl);
-        block[2].transform.localScale = new Vector3(scl, scl, scl);
-        block[3].transform.localScale = new Vector3(scl, scl, scl);
+        MakeNoise();
 
-        var tmpstone = block[0].transform.Find("tmpstone");
-        //Debug.Log(tmpstone);
-        var tmpdefult = tmpstone.transform.Find("default").gameObject;
-        //Debug.Log(tmpdefult);
-        bounds = tmpdefult.GetComponent<MeshFilter>().sharedMesh.bounds;
-        mapCtl.scl = scl;
-
-        noise = new float[worldSize.x*mapSize.x][];
-        for(int x = 0;x < noise.Length;x++)
-        {
-            noise[x] = new float[worldSize.y * mapSize.z];
-        }
-
-        for (int x = 0; x < noise.Length; x++)
-        {
-            for (int y = 0; y < noise[x].Length; y++)
-            {
-                noise[x][y] = Mathf.PerlinNoise((x*bounds.size.x)/15,(y * bounds.size.y)/15);
-                if(maxNoize <= noise[x][y])
-                {
-                    maxNoize = noise[x][y];
-                }
-            }
-        }
-        //Instantiate(obj,, Quaternion.identity);
-        for (int x = 0;x < worldSize.x;x++)
+        for (int x = 0; x < worldSize.x; x++)
         {
             for (int y = 0; y < worldSize.x; y++)
             {
-                MapInit(x,y);
                 var chunkPosX = (((x + 1) / 2) * ((((x + 1) % 2) * 2) - 1));
-                chunk = new GameObject("Chunk" + (4+chunkPosX).ToString() + y.ToString());
+                MapInit(x, y);
+                chunk = new GameObject("Chunk" + (4 + chunkPosX).ToString() + y.ToString());
                 chunk.tag = "chunk";
                 MapGenerate();
                 mapCtl.bounds = bounds;
-                chunk.transform.position = new Vector3((mapSize.x * (bounds.size.x*scl)) * chunkPosX, 0.0f, (mapSize.z * (bounds.size.z*scl)) * y);
-                mapCtl.chunks[4+chunkPosX][y] = chunk;
+                mapCtl.scl = scl;
+                chunk.transform.position = new Vector3((mapSize.x * (bounds.size.x * scl)) * chunkPosX, 0.0f, (mapSize.z * (bounds.size.z * scl)) * y);
+                mapCtl.chunks[4 + chunkPosX][y] = chunk;
+            }
+        }
+    }
+
+    private void MakeNoise()
+    {
+        var dirtseed = Random.value*100;
+        var coalseed = Random.value*100;
+        for (int x = 0; x < dirtNoise.Length; x++)
+        {
+            for (int y = 0; y < dirtNoise[x].Length; y++)
+            {
+                dirtNoise[x][y] = Mathf.PerlinNoise(((x * bounds.size.x) + dirtseed) / 15, ((y * bounds.size.y + dirtseed)) / 15);
+                if (maxDirtNoise <= dirtNoise[x][y])
+                {
+                    maxDirtNoise = dirtNoise[x][y];
+                }
             }
         }
     }
 
     void MapInit(int chunkX,int chunkY)
     {
+        var chunkPosX = (((chunkX + 1) / 2) * ((((chunkX + 1) % 2) * 2) - 1));
+
         mapData = new BlockID[mapSize.x][][];
         for (int x = 0; x < mapSize.x; x++)
         {
@@ -96,77 +92,64 @@ public class MapGenerator : MonoBehaviour
                 mapData[x][y] = new BlockID[mapSize.z];
                 for (int z = 0; z < mapSize.z; z++)
                 {
-                    if (chunkX == 0)
-                    {
-                        mapData[x][y][z] = BlockID.max;
-                    }
-                    else
-                    {
-                        
-                        if ((Random.value * 100) % 100 <= 100 - (2 * (chunkX)))
-                        {
-                            if (noise[x + mapSize.x * chunkX][z + mapSize.z * chunkY] > (maxNoize * 0.3))
-                            {
-                                mapData[x][y][z] = BlockID.stone;
-                            }
-                            else
-                            {
-                                mapData[x][y][z] = BlockID.dirt;
-                            }
-                        }
-                        else
-                        {
-                            mapData[x][y][z] = BlockID.gem;
-                        }
-                    }
+                    LandFill(chunkX, chunkY, x, y, z);
                 }
             }
         }
-        if (chunkX == 0)
+
+        for (int x = 0; x < mapSize.x; x++)
         {
-            for (int x = 0; x < mapSize.x; x++)
+            for (int y = 0; y < mapSize.y; y++)
             {
-                for (int y = 0; y < mapSize.y; y++)
+                for (int z = 0; z < mapSize.z; z++)
                 {
-                    for (int z = 0; z < mapSize.z; z++)
+                    if (chunkX == 0)
                     {
-                        if (mapData[x][y][z] != BlockID.max)
-                        {
-                            continue;
-                        }
-                        if ((Random.value * 100) % 100 <= 95 - (5 * chunkX))
-                        {
-                            if (noise[x + mapSize.x * chunkX][z + mapSize.z * chunkY] > (maxNoize * 0.3))
-                            {
-                                mapData[x][y][z] = BlockID.stone;
-                            }
-                            else
-                            {
-                                mapData[x][y][z] = BlockID.dirt;
-                            }
-                        }
-                        else
-                        {
-                            mapData[x][y][z] = BlockID.gem;
-                        }
                         if (x == mapSize.x / 2)
                         {
-                            if (y == 0)
+                            mapData[x][y][z] = (y == 0 ? BlockID.rail : BlockID.air);
+                            mapData[x - 1][y][z] = BlockID.air;
+                            mapData[x + 1][y][z] = BlockID.air;
+                        }
+                    }
+                    else
+                    {
+                        if (!((Random.value * 100) % 100 <= 100 - ((Mathf.Abs(chunkPosX) + chunkY) / 2)))
+                        {
+                            if(treasure == false && (Random.value * 100) % 100 <= 50)
                             {
-                                mapData[x][y][z] = BlockID.rail;
+                                mapData[x][y][z] = BlockID.treasure;
+                                treasure = true;
                             }
                             else
                             {
-                                mapData[x][y][z] = BlockID.air;
+                                mapData[x][y][z] = BlockID.gem;
                             }
-                            mapData[x - 1][y][z] = BlockID.air;
-                            mapData[x + 1][y][z] = BlockID.air;
                         }
                     }
                 }
             }
         }
     }
+
+    private void LandFill(int chunkX, int chunkY, int x, int y, int z)
+    {
+        var dirth = dirtNoise[x + mapSize.x * chunkX][z + mapSize.z * chunkY]; //dirtNoise値を保存
+
+        if (dirth < (maxDirtNoise * 0.3))
+        {
+            mapData[x][y][z] = BlockID.dirt;
+        }
+        else if (dirth > (maxDirtNoise *0.7)&&dirth < (maxDirtNoise * 0.9))
+        {
+            mapData[x][y][z] = BlockID.bedrock;
+        }
+        else
+        {
+            mapData[x][y][z] = BlockID.stone;
+        }
+    }
+
     void MapGenerate()
     {
         for (int x = 0; x < mapSize.x; x++)
@@ -196,6 +179,14 @@ public class MapGenerator : MonoBehaviour
                             gameObject = Instantiate(block[3], pos, Quaternion.identity);
                             gameObject.transform.parent = chunk.transform;
                             break;
+                        case BlockID.bedrock:
+                            gameObject = Instantiate(block[4], pos, Quaternion.identity);
+                            gameObject.transform.parent = chunk.transform;
+                            break;
+                        case BlockID.treasure:
+                            gameObject = Instantiate(block[5], pos, Quaternion.identity);
+                            gameObject.transform.parent = chunk.transform;
+                            break;
                         case BlockID.rail:
                             block[1].transform.localScale = new Vector3(scl, scl, scl);
                             gameObject = Instantiate(block[1], pos, Quaternion.identity);
@@ -209,18 +200,22 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
-    
-    BlockID GemGenerator(int chunkId)
+
+    void Init()
     {
-        switch (chunkId)
+        dirtNoise = new float[worldSize.x * mapSize.x][];
+        for (int x = 0; x < dirtNoise.Length; x++)
         {
-            case 0:
-                break;
+            dirtNoise[x] = new float[worldSize.y * mapSize.z];
         }
-        return BlockID.stone;
-    }
-    // Update is called once per frame
-    void Update()
-    {
+
+        foreach(var b in block)
+        {
+            b.transform.localScale = new Vector3(scl, scl, scl);
+        }
+
+        var tmpstone = block[0].transform.Find("default").gameObject;
+        Debug.Log(tmpstone);
+        bounds = tmpstone.GetComponent<MeshFilter>().sharedMesh.bounds;
     }
 }

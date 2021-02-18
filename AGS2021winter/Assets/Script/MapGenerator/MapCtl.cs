@@ -29,13 +29,13 @@ public class MapCtl : MonoBehaviour
         {
             Vector2Int index = new Vector2Int(4 + (int)((player.position.x - (chunkSize.x * bounds.size.x*scl)/2) / (chunkSize.x * bounds.size.x*scl)),
                                                 (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
-            Debug.Log(chunks[index.x][index.y]);
+         //   Debug.Log(chunks[index.x][index.y]);
         }
         else
         {
             Vector2Int index = new Vector2Int(4 + (int)((player.position.x + (chunkSize.x * bounds.size.x*scl)/2) / (chunkSize.x * bounds.size.x*scl)),
                                                 (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
-            Debug.Log(chunks[index.x][index.y]);
+         //   Debug.Log(chunks[index.x][index.y]);
         }
     }
 }
