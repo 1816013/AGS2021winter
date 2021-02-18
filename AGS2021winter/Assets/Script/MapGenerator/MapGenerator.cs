@@ -34,7 +34,6 @@ public class MapGenerator : MonoBehaviour
     void Start()
     {
         Init();
-
         GameObject floorplane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         GameObject ceilingplane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         floorplane.transform.localScale = new Vector3(0.4f * ((mapSize.x*worldSize.x)/2), 1.0f, 0.4f*((mapSize.z * worldSize.y) / 2));
@@ -81,6 +80,7 @@ public class MapGenerator : MonoBehaviour
 
     void MapInit(int chunkX,int chunkY)
     {
+        var treasureChunk = new Vector2Int(Random.Range(0, worldSize.x + 1), Random.Range(0, worldSize.y + 1));
         var chunkPosX = (((chunkX + 1) / 2) * ((((chunkX + 1) % 2) * 2) - 1));
 
         mapData = new BlockID[mapSize.x][][];
@@ -116,15 +116,13 @@ public class MapGenerator : MonoBehaviour
                     {
                         if (!((Random.value * 100) % 100 <= 100 - ((Mathf.Abs(chunkPosX) + chunkY) / 2)))
                         {
-                            if(treasure == false && (Random.value * 100) % 100 <= 50)
-                            {
-                                mapData[x][y][z] = BlockID.treasure;
-                                treasure = true;
-                            }
-                            else
-                            {
                                 mapData[x][y][z] = BlockID.gem;
-                            }
+                        }
+                        if (treasure == false && treasureChunk == new Vector2Int(chunkX,chunkY)&& Random.Range(0,100) <= 10)
+                        {
+                            Debug.Log(treasureChunk);
+                            mapData[x][y][z] = BlockID.treasure;
+                            treasure = true;
                         }
                     }
                 }
