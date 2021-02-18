@@ -7,6 +7,7 @@ public class MapCtl : MonoBehaviour
     public Transform player;
     public GameObject[][] chunks;
     Vector2Int chunkSize = new Vector2Int(20, 20);
+    public float scl;
     public Bounds bounds;
     Bounds playerBounds;
     // Start is called before the first frame update
@@ -26,14 +27,14 @@ public class MapCtl : MonoBehaviour
     {
         if(player.position.x < 0)
         {
-            Vector2Int index = new Vector2Int(4 + (int)((player.position.x - (chunkSize.x * bounds.size.x)/2) / (chunkSize.x * bounds.size.x)),
-                                                (int)((player.position.z + (chunkSize.y * bounds.size.z)/2) / (chunkSize.y * bounds.size.z)));
+            Vector2Int index = new Vector2Int(4 + (int)((player.position.x - (chunkSize.x * bounds.size.x*scl)/2) / (chunkSize.x * bounds.size.x*scl)),
+                                                (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
             Debug.Log(chunks[index.x][index.y]);
         }
         else
         {
-            Vector2Int index = new Vector2Int(4 + (int)((player.position.x + (chunkSize.x * bounds.size.x)/2) / (chunkSize.x * bounds.size.x)),
-                                                (int)((player.position.z + (chunkSize.y * bounds.size.z)/2) / (chunkSize.y * bounds.size.z)));
+            Vector2Int index = new Vector2Int(4 + (int)((player.position.x + (chunkSize.x * bounds.size.x*scl)/2) / (chunkSize.x * bounds.size.x*scl)),
+                                                (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
             Debug.Log(chunks[index.x][index.y]);
         }
     }

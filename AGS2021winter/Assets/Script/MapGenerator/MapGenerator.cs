@@ -49,6 +49,7 @@ public class MapGenerator : MonoBehaviour
         var tmpdefult = tmpstone.transform.Find("default").gameObject;
         //Debug.Log(tmpdefult);
         bounds = tmpdefult.GetComponent<MeshFilter>().sharedMesh.bounds;
+        mapCtl.scl = scl;
 
         noise = new float[worldSize.x*mapSize.x][];
         for(int x = 0;x < noise.Length;x++)
