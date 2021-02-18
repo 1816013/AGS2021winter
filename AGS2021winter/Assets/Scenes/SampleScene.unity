@@ -155,7 +155,8 @@ MonoBehaviour:
   mapCtl: {fileID: 800306180}
   block:
   - {fileID: 999359944540335671, guid: caf144bc93d0b9743906df29153f1207, type: 3}
-  - {fileID: 8164078558771037576, guid: 48c73f24deb705e42897b4f5dbc9eb7b, type: 3}
+  - {fileID: 3442416224132802561, guid: 898c2ec0f4937a440bb68f801cbf812c, type: 3}
+  - {fileID: 4968020028582523724, guid: b1e4fb6d81d43e04b94745a2b7a65fbf, type: 3}
 --- !u!4 &22735927
 Transform:
   m_ObjectHideFlags: 0
