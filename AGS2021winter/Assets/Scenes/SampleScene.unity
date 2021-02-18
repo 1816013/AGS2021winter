@@ -151,20 +151,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: {x: 20, y: 2, z: 20}
-  worldSize: {x: 1, y: 1}
+  worldSize: {x: 9, y: 9}
   mapCtl: {fileID: 800306180}
   block:
-  - {fileID: 1038847389526503462, guid: caf144bc93d0b9743906df29153f1207, type: 3}
+  - {fileID: 5049462554722474827, guid: caf144bc93d0b9743906df29153f1207, type: 3}
   - {fileID: 3442416224132802561, guid: 898c2ec0f4937a440bb68f801cbf812c, type: 3}
   - {fileID: 4968020028582523724, guid: b1e4fb6d81d43e04b94745a2b7a65fbf, type: 3}
   - {fileID: 8140385627260763058, guid: 337b5588278ffc34ab67f88afdacb6bf, type: 3}
-<<<<<<< HEAD
   - {fileID: 9100268497582001633, guid: 6555d240e258cc34397b6f679e7c76b7, type: 3}
   - {fileID: 5193641590457006024, guid: 5184586b0cd1f9e4e87238914f140472, type: 3}
-  scl: 0.5
-=======
   scl: 0.25
->>>>>>> 4e00651d8dd75504774c29f2bf7424a92a1b6a40
 --- !u!4 &22735927
 Transform:
   m_ObjectHideFlags: 0
@@ -273,7 +269,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.4339623, g: 0.27600786, b: 0.07164471, a: 1}
+  m_Color: {r: 0.41509432, g: 0.2879348, b: 0.123353496, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -366,11 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145846eebaccdb9408c1482f871eca91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  player: {fileID: 1264583833}
-=======
   player: {fileID: 5688347518916762457}
->>>>>>> 4e00651d8dd75504774c29f2bf7424a92a1b6a40
   scl: 0
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
