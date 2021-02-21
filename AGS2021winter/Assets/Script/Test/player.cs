@@ -14,27 +14,29 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Vector3 move = new Vector3(0,0,0);
+        Vector3 cForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1,0,1));
+        Debug.Log(transform.position.y);
+        Vector3 move = new Vector3(0,0,0);
 		float step = 2 * Time.deltaTime;
 		if (Input.GetKey(KeyCode.W))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 0, 0), step);
-			move += body.transform.forward * 2 * Time.deltaTime;
+			//move += xzCamera.forward * 2 * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.A))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 270.0f, 0), step);
-			move -= body.transform.right * 2 * Time.deltaTime;
+			//move -= xzCamera.right * 2 * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.S))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 180.0f, 0), step);
-			move -= body.transform.forward * 2 * Time.deltaTime;
+			//move -= xzCamera.forward * 2 * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 90.0f, 0), step);
-			move += body.transform.right * 2 * Time.deltaTime;
+			move += this.transform.right * 2 * Time.deltaTime;
 		}
 		float angle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
 		if (move != Vector3.zero)
@@ -48,6 +50,6 @@ public class player : MonoBehaviour
 			
 			body.transform.rotation = Quaternion.RotateTowards(body.transform.rotation, Quaternion.Euler(0, angle, 0), speed);
 		}
-		transform.position += move;
+		//this.transform.position += move;
 	}
 }
