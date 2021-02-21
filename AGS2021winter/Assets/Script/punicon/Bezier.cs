@@ -68,7 +68,7 @@ public class Bezier
   public Vector2 GetPosition( float t )
   {
     if( t <= 0 ) return new Vector2(P1.x, P1.y);
-    if( t >= 1 ) return new Vector2(P2.x, P2.y);
+    if( t >= 1 ) return new Vector2(P4.x, P4.y);
 
     var x1 = P1.x;
     var x2 = P2.x;

@@ -5,51 +5,37 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
 	private GameObject body;
+    float inputHorizontal;
+    float inputVertical;
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        rb = this.GetComponent<Rigidbody>();
 		body = this.transform.Find("body").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 cForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1,0,1));
-        Debug.Log(transform.position.y);
-        Vector3 move = new Vector3(0,0,0);
-		float step = 2 * Time.deltaTime;
-		if (Input.GetKey(KeyCode.W))
-		{
-			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 0, 0), step);
-			//move += xzCamera.forward * 2 * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.A))
-		{
-			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 270.0f, 0), step);
-			//move -= xzCamera.right * 2 * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.S))
-		{
-			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 180.0f, 0), step);
-			//move -= xzCamera.forward * 2 * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.D))
-		{
-			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 90.0f, 0), step);
-			move += this.transform.right * 2 * Time.deltaTime;
-		}
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
+        inputVertical = Input.GetAxisRaw("Vertical");
+        // 方向キーの入力値とカメラの向きから、移動方向を決定
+        Vector3 moveForward = this.transform.forward * inputVertical + this.transform.right * inputHorizontal;
+        // 移動方向にスピードを掛ける。
+        Vector3 move = moveForward * 1;
+		//float step = 2 * Time.deltaTime;
 		float angle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
-		if (move != Vector3.zero)
+		if (move != Vector3.zero && inputVertical >= 0)
 		{
-			float mathAngle = Mathf.Abs(body.transform.rotation.eulerAngles.y - angle);
-			Debug.Log(mathAngle);
+			float mathAngle = Mathf.Abs(this.transform.rotation.eulerAngles.y - angle);
 			mathAngle = mathAngle > 180.0f ? Mathf.Abs(mathAngle - 360.0f) : mathAngle;
 			
 			float parsent = mathAngle / 180.0f;
 			float speed = Mathf.Max(30.0f * parsent, 1.0f);
 			
-			body.transform.rotation = Quaternion.RotateTowards(body.transform.rotation, Quaternion.Euler(0, angle, 0), speed);
+			this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, Quaternion.Euler(0, angle, 0), speed);
 		}
-		//this.transform.position += move;
+		rb.velocity = move;
 	}
 }

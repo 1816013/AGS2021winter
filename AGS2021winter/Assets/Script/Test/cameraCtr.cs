@@ -10,11 +10,11 @@ public class cameraCtr : MonoBehaviour
     private float distance = 1;
     [SerializeField]
     private float height = 5;
-
+    private Vector3 initPos;
     // Start is called before the first frame update
     void Start()
     {
- 
+        initPos = transform.position;
     }
 
     // Update is called once per frame
@@ -25,26 +25,18 @@ public class cameraCtr : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance))
         {
-            Vector3 pos = target.transform.position + (hit.point - targetNVec);
-            Debug.Log(pos);
+            float hitDistance = (target.transform.position - hit.point).magnitude;
+            Vector3 pos = target.transform.position + (targetNVec * hitDistance);
             this.transform.position = new Vector3(pos.x, height, pos.z);
             Vector3 targetVec = target.transform.position - transform.position + new Vector3(0, 1, 0);
             this.transform.rotation = Quaternion.LookRotation(targetVec);
-            //Vector3 pos = target.transform.position + (-targetNVec * distance);
-            //// Debug.Log(pos);
-            //this.transform.position = new Vector3(pos.x, height, pos.z);
-            //Vector3 targetVec = target.transform.position - transform.position + new Vector3(0, 1, 0);
-            //this.transform.rotation = Quaternion.LookRotation(targetVec);
-            // Debug.Log("hit");
         }
         else
         {
-            //Debug.Log(targetNVec);
-            //Vector3 pos = target.transform.position + (targetNVec * distance);
-            //Debug.Log(pos);
-            //this.transform.position = new Vector3(0, 10, 0);
-            //Vector3 targetVec = (target.transform.position - transform.position) + new Vector3(0, 1, 0);
-            //this.transform.rotation = Quaternion.LookRotation(targetVec);
+            Vector3 pos = target.transform.position + (targetNVec * distance);
+            this.transform.position = new Vector3(pos.x, height, pos.z);
+            Vector3 targetVec = (target.transform.position - transform.position) + new Vector3(0, 1, 0);
+            this.transform.rotation = Quaternion.LookRotation(targetVec);
         }
     }
 }
