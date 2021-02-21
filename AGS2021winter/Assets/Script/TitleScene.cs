@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class TitleScene : MonoBehaviour
 {
-    public void OnClickMainButton()
+    private void Start()
     {
-        SceneManager.LoadScene("MainScene");
+    }
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
 }
