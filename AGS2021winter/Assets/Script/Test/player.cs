@@ -19,22 +19,22 @@ public class player : MonoBehaviour
 		if (Input.GetKey(KeyCode.W))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 0, 0), step);
-			move += Vector3.forward * 2 * Time.deltaTime;
+			move += body.transform.forward * 2 * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.A))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 270.0f, 0), step);
-			move -= Vector3.right * 2 * Time.deltaTime;
+			move -= body.transform.right * 2 * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.S))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 180.0f, 0), step);
-			move -= Vector3.forward * 2 * Time.deltaTime;
+			move -= body.transform.forward * 2 * Time.deltaTime;
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
 			//body.transform.rotation = Quaternion.Slerp(body.transform.rotation, Quaternion.Euler(0, 90.0f, 0), step);
-			move += Vector3.right * 2 * Time.deltaTime;
+			move += body.transform.right * 2 * Time.deltaTime;
 		}
 		float angle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
 		if (move != Vector3.zero)

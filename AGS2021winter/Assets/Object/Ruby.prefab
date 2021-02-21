@@ -64,8 +64,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7686099035223058531, guid: caf144bc93d0b9743906df29153f1207,
-            type: 3}
+        - m_Target: {fileID: -1630959554113397399}
           m_MethodName: OnCursorAct
           m_Mode: 1
           m_Arguments:
@@ -80,8 +79,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7686099035223058531, guid: caf144bc93d0b9743906df29153f1207,
-            type: 3}
+        - m_Target: {fileID: -1630959554113397399}
           m_MethodName: ExitCursorAct
           m_Mode: 1
           m_Arguments:
