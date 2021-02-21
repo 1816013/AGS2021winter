@@ -14,4 +14,8 @@ public class MainScene : MonoBehaviour
     {
         SceneManager.LoadScene("ShopScene");
     }
+    public void OnClickMainButton()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
 }
