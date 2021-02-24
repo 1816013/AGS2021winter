@@ -16,7 +16,7 @@ public class MapGenerator : MonoBehaviour
         treasure,
         max
     }
-
+    public List<GameObject> objs = new List<GameObject>();
     public Vector3Int mapSize;
     public Vector2Int worldSize;
     public MapCtl mapCtl;
@@ -28,6 +28,8 @@ public class MapGenerator : MonoBehaviour
     public float scl;
     Bounds bounds;
     GameObject chunk;
+
+   
 
     BlockID[][][] mapData;
     // Start is called before the first frame update
@@ -160,7 +162,7 @@ public class MapGenerator : MonoBehaviour
                                             (y * (bounds.size.y * scl)),
                                             (mapSize.z * (bounds.size.x * scl)) / 2 - (z * (bounds.size.z * scl)) - 2);
                     var id = mapData[x][y][z];
-                    GameObject gameObject;
+                    GameObject gameObject = null;
                     switch (id)
                     {
                         case BlockID.air:
@@ -194,6 +196,7 @@ public class MapGenerator : MonoBehaviour
                             Assert.IsFalse(id == BlockID.max, "BlockIDに想定されていない値が入っています。");
                             break;
                     }
+                    objs.Add(gameObject);
                 }
             }
         }
