@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "QV722CCU54",
         "name": "com.DefaultCompany.AGS2021winter",
-        "processId": 1573,
+        "processId": 12144,
         "exited": true
     },
     "m_SelectedPriority": 0,
@@ -18,12 +18,102 @@
             "deviceId": "QV722CCU54",
             "name": "com.sonymobile.launcher",
             "processId": 26465,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "QV722CCU54",
             "name": "com.DefaultCompany.AGS2021winter",
             "processId": 1573,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 26784,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 29335,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 30654,
+            "exited": false
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 32164,
+            "exited": false
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 1622,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 2631,
+            "exited": false
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 3467,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 5527,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 6640,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 7884,
+            "exited": false
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 8575,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 9502,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 10425,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 11188,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 12144,
             "exited": true
         }
     ],
