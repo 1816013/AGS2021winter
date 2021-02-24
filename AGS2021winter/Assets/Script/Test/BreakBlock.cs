@@ -15,7 +15,7 @@ public class BreakBlock : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void BreackUpdate()
     {
         // クリックしている間のみ加算
         if(Input.GetMouseButton(0) && onCursor_)

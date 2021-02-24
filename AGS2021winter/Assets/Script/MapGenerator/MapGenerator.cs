@@ -29,8 +29,6 @@ public class MapGenerator : MonoBehaviour
     Bounds bounds;
     GameObject chunk;
 
-   
-
     BlockID[][][] mapData;
     // Start is called before the first frame update
     void Start()
