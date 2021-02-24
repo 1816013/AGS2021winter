@@ -11,7 +11,7 @@ public class ObjCtr : MonoBehaviour
     void Update()
     {
         // マップデータが出来てないとき
-        if (mapGen.objs.Count == 0)
+        if (objs.Count == 0)
         {         
             objs = mapGen.objs;
         }
