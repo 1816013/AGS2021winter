@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2636025910482932266}
   - component: {fileID: 7833821511444096595}
   - component: {fileID: -1630959554113397399}
+  - component: {fileID: -1008963349296921549}
   m_Layer: 0
   m_Name: Ruby
   m_TagString: object
@@ -103,6 +104,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakTime_: 2
+--- !u!114 &-1008963349296921549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891442175504117937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4565b5ebade8f0c42a1ab7f0f386faf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7472047115795826792
 GameObject:
   m_ObjectHideFlags: 0

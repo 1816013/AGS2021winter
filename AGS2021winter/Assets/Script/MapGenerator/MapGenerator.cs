@@ -53,8 +53,8 @@ public class MapGenerator : MonoBehaviour
                 chunk = new GameObject("Chunk" + (4 + chunkPosX).ToString() + y.ToString());
                 chunk.tag = "chunk";
                 MapGenerate();
-                mapCtl.bounds = bounds;
-                mapCtl.scl = scl;
+                mapCtl.SetBounds(bounds);
+                mapCtl.SetScl(scl);
                 chunk.transform.position = new Vector3((mapSize.x * (bounds.size.x * scl)) * chunkPosX, 0.0f, (mapSize.z * (bounds.size.z * scl)) * y);
                 mapCtl.chunks[4 + chunkPosX][y] = chunk;
             }
@@ -103,7 +103,7 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int z = 0; z < mapSize.z; z++)
                 {
-                    if (chunkX == 0)
+                    if (chunkX == 0&& chunkY < (worldSize.y-1))
                     {
                         if (x == mapSize.x / 2)
                         {
@@ -156,9 +156,9 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int z = 0; z < mapSize.z; z++)
                 {
-                    var pos = new Vector3((mapSize.x * (bounds.size.x * scl)) / 2 - (x * (bounds.size.x * scl)) - 2,
+                    var pos = new Vector3((mapSize.x * (bounds.size.x * scl)) / 2 - (x * (bounds.size.x * scl)),
                                             (y * (bounds.size.y * scl)),
-                                            (mapSize.z * (bounds.size.x * scl)) / 2 - (z * (bounds.size.z * scl)) - 2);
+                                            (mapSize.z * (bounds.size.x * scl)) / 2 - (z * (bounds.size.z * scl)) - 1);
                     var id = mapData[x][y][z];
                     GameObject gameObject = null;
                     switch (id)
@@ -202,6 +202,7 @@ public class MapGenerator : MonoBehaviour
 
     void Init()
     {
+        mapCtl.centerChunk = new Vector2(worldSize.x / 2, worldSize.y / 2);
         dirtNoise = new float[worldSize.x * mapSize.x][];
         for (int x = 0; x < dirtNoise.Length; x++)
         {

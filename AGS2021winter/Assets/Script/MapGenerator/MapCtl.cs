@@ -6,6 +6,7 @@ public class MapCtl : MonoBehaviour
 {
     public Transform player;
     public GameObject[][] chunks;
+    public Vector2 centerChunk;
     Vector2Int chunkSize = new Vector2Int(20, 20);
     public float scl;
     public Bounds bounds;
@@ -37,5 +38,27 @@ public class MapCtl : MonoBehaviour
                                                 (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
          //   Debug.Log(chunks[index.x][index.y]);
         }
+    }
+
+    public Vector2Int GetChunkSize()
+    {
+        return chunkSize;
+    }
+    public void SetBounds(Bounds bound)
+    {
+        bounds = bound;
+    }
+    public Bounds GetBounds()
+    {
+        return bounds;
+    }
+    
+    public void SetScl(float size)
+    {
+        scl = size;
+    }
+    public float GetScl()
+    {
+        return scl;
     }
 }
