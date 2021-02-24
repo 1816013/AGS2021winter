@@ -6,16 +6,5 @@ using UnityEngine.SceneManagement;
 
 public class MainScene : MonoBehaviour
 {
-    public void OnClickGameButton()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
-    public void OnClickShopButton()
-    {
-        SceneManager.LoadScene("ShopScene");
-    }
-    public void OnClickMainButton()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
+    
 }
