@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "QV722CCU54",
     "m_SelectedPackage": {
-        "deviceId": "QV722CCU54",
-        "name": "com.DefaultCompany.AGS2021winter",
-        "processId": 15239,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -133,6 +133,24 @@
             "name": "com.DefaultCompany.AGS2021winter",
             "processId": 15239,
             "exited": false
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 24458,
+            "exited": false
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 28239,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 29914,
+            "exited": true
         }
     ],
     "m_Tags": {

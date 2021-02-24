@@ -30,13 +30,13 @@ public class player : MonoBehaviour
        
 		//float step = 2 * Time.deltaTime;
 		float angle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
-		if (moveDir != Vector3.zero && inputVertical >= 0)
+		if (moveDir != Vector3.zero)
 		{
 			float mathAngle = Mathf.Abs(this.transform.rotation.eulerAngles.y - angle);
 			mathAngle = mathAngle > 180.0f ? Mathf.Abs(mathAngle - 360.0f) : mathAngle;
 			
 			float parsent = mathAngle / 180.0f;
-			float speed = Mathf.Max(10.0f * parsent, 1.0f);
+			float speed = Mathf.Max(20.0f * parsent, 1.0f);
 			
 			this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, Quaternion.Euler(0, angle, 0), speed);
 		}
@@ -44,7 +44,7 @@ public class player : MonoBehaviour
         // 移動は前か後ろしかしないためVerticalのみ
         Vector3 move = this.transform.forward * inputVertical;
         // 移動方向にスピードを掛ける。
-        move *= 10;
+        move *= 5;
         rb.velocity = move;
 	}
 

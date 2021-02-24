@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: {x: 20, y: 2, z: 20}
-  worldSize: {x: 1, y: 1}
+  worldSize: {x: 3, y: 3}
   mapCtl: {fileID: 1708029383}
   block:
   - {fileID: 5049462554722474827, guid: caf144bc93d0b9743906df29153f1207, type: 3}
