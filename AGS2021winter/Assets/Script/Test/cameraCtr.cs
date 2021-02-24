@@ -27,9 +27,9 @@ public class cameraCtr : MonoBehaviour
         {
             float hitDistance = (target.transform.position - hit.point).magnitude;
             Vector3 pos = target.transform.position + (targetNVec * hitDistance);
-            this.transform.position = new Vector3(pos.x, height, pos.z);
-            Vector3 targetVec = target.transform.position - transform.position + new Vector3(0, 1, 0);
-            this.transform.rotation = Quaternion.LookRotation(targetVec);
+            this.transform.position = new Vector3(pos.x, pos.y, pos.z);
+            //Vector3 targetVec = target.transform.position - transform.position + new Vector3(0, 1, 0);
+           // this.transform.rotation = Quaternion.LookRotation(targetVec);
         }
         else
         {

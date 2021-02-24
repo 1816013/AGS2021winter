@@ -75,7 +75,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78459567, y: 1.469461, z: 0.83061886}
+  m_Size: {x: 0.8, y: 1.5, z: 0.8}
   m_Center: {x: -0.0041407645, y: 0.23473048, z: -0.0009224415}
 --- !u!1 &5109450472183853909
 GameObject:
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6713061130384105362}
   - component: {fileID: 3466166332765174621}
   - component: {fileID: 6675726105615798048}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4645856607258828840}
-  distance: 5
-  height: 2.5
+  distance: 2.5
+  height: 1.5
 --- !u!114 &6675726105615798048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,10 +270,90 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -8079693918933282095, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6218908871453447225, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4020210562818054158, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1939926859696433821, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -894522731008145886, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
         type: 3}
       propertyPath: m_Name
       value: "\u9ED2\u3044\u306E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790183945725220954, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326981520244998725, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682846837867214308, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2906943080928695263, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507757787611448665, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699651711958550435, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819001077394492298, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 855c79c6858fd7a4baa2fbe8794c33b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855c79c6858fd7a4baa2fbe8794c33b8, type: 3}

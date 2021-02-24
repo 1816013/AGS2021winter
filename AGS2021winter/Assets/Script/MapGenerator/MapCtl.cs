@@ -9,7 +9,7 @@ public class MapCtl : MonoBehaviour
     Vector2Int chunkSize = new Vector2Int(20, 20);
     public float scl;
     public Bounds bounds;
-    Bounds playerBounds;
+    //Bounds playerBounds;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,7 +19,7 @@ public class MapCtl : MonoBehaviour
         {
             chunks[y] = new GameObject[chunkSize.y];
         }
-        playerBounds = player.GetComponent<MeshFilter>().sharedMesh.bounds;
+        //playerBounds = player.GetComponent<MeshFilter>().sharedMesh.bounds;
     }
 
     // Update is called once per framea
