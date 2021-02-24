@@ -2,6 +2,7 @@
 {
     Properties
     {
+		_BreakUV("BreakUV", Range(0, 1)) = 0.0
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Texture", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
@@ -25,7 +26,7 @@
         {
             float2 uv_MainTex;
         };
-		
+		half _BreakUV;
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
@@ -39,7 +40,7 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float2 uv = float2((IN.uv_MainTex.x * 0.1f)+0.1f ,IN.uv_MainTex.y);
+			float2 uv = float2((IN.uv_MainTex.x * 0.1f)+ _BreakUV,IN.uv_MainTex.y);
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, uv) * _Color;
             o.Albedo = c.rgb;

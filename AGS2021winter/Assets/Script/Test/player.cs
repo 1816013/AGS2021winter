@@ -30,7 +30,7 @@ public class player : MonoBehaviour
        
 		//float step = 2 * Time.deltaTime;
 		float angle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
-		if (moveDir != Vector3.zero)
+		if (moveDir != Vector3.zero && inputVertical > -0.1)
 		{
 			float mathAngle = Mathf.Abs(this.transform.rotation.eulerAngles.y - angle);
 			mathAngle = mathAngle > 180.0f ? Mathf.Abs(mathAngle - 360.0f) : mathAngle;
