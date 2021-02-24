@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f34bb07f6341a41a2966136158654e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchMargine: 100
+  touchMargine: 50
 --- !u!54 &3268616514129107443
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &6748702278510799950
 BoxCollider:

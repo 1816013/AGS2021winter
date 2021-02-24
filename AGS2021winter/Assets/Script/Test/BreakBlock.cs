@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BreakBlock : MonoBehaviour
 {
-    [SerializeField][Range(0.5f, 5)]
+    [SerializeField][Range(0.2f, 5)]
     private float breakTime_;
     private float frame_;
     private bool onCursor_;
