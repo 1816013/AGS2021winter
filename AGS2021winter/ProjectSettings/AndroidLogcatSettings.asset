@@ -3,8 +3,8 @@
     "m_SelectedPackage": {
         "deviceId": "QV722CCU54",
         "name": "com.DefaultCompany.AGS2021winter",
-        "processId": 12144,
-        "exited": true
+        "processId": 15239,
+        "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
@@ -115,6 +115,24 @@
             "name": "com.DefaultCompany.AGS2021winter",
             "processId": 12144,
             "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 8866,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 10791,
+            "exited": true
+        },
+        {
+            "deviceId": "QV722CCU54",
+            "name": "com.DefaultCompany.AGS2021winter",
+            "processId": 15239,
+            "exited": false
         }
     ],
     "m_Tags": {
