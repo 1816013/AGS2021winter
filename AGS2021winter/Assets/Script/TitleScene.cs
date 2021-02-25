@@ -7,17 +7,17 @@ using UnityEngine.SceneManagement;
 public class TitleScene : MonoBehaviour
 {
     private int cnt = 0;
-    private bool flag = false;
+    public bool flag = false;
     private void Start()
     {
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            flag = true;
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    flag = true;
+        //}
         if(flag)
         {
             cnt++;
