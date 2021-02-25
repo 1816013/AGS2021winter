@@ -24,7 +24,7 @@ public class ObjCtr : MonoBehaviour
             }
             var block = obj.GetComponent<BreakBlock>();
             // コンポーネントがないオブジェクトをはじく
-            if (block != null)
+            if (block != null&& block.isActiveAndEnabled == true)
             {
                 block.BreackUpdate();
             }

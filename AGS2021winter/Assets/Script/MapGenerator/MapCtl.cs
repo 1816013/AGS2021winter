@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapCtl : MonoBehaviour
 {
     public Transform player;
+    public InventorySystem inventory;
     public GameObject[][] chunks;
     public Vector2 centerChunk;
     Vector2Int chunkSize = new Vector2Int(20, 20);
@@ -26,20 +27,29 @@ public class MapCtl : MonoBehaviour
     // Update is called once per framea
     void Update()
     {
-        if(player.position.x < 0)
+        GetChunk(player.position);
+    }
+    public Vector2Int GetChunk(Vector3 pos)
+    {
+        Vector2Int index;
+        if (pos.x < 0)
         {
-            Vector2Int index = new Vector2Int(4 + (int)((player.position.x - (chunkSize.x * bounds.size.x*scl)/2) / (chunkSize.x * bounds.size.x*scl)),
-                                                (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
-         //   Debug.Log(chunks[index.x][index.y]);
+            index = new Vector2Int(4 + (int)((pos.x - (chunkSize.x * bounds.size.x * scl) / 2) / (chunkSize.x * bounds.size.x * scl)),
+                                             (int)((pos.z + (chunkSize.y * bounds.size.z * scl) / 2) / (chunkSize.y * bounds.size.z * scl)));
+            //   Debug.Log(chunks[index.x][index.y]);
         }
         else
         {
-            Vector2Int index = new Vector2Int(4 + (int)((player.position.x + (chunkSize.x * bounds.size.x*scl)/2) / (chunkSize.x * bounds.size.x*scl)),
-                                                (int)((player.position.z + (chunkSize.y * bounds.size.z*scl)/2) / (chunkSize.y * bounds.size.z*scl)));
-         //   Debug.Log(chunks[index.x][index.y]);
+            index = new Vector2Int((int)((pos.x + (chunkSize.x * bounds.size.x * scl) / 2) / (chunkSize.x * bounds.size.x * scl)),
+                                             (int)((pos.z + (chunkSize.y * bounds.size.z * scl) / 2) / (chunkSize.y * bounds.size.z * scl)));
+            //   Debug.Log(chunks[index.x][index.y]);
         }
+        return index;
     }
-
+    public void GetBlockData(GameObject obj)
+    {   
+        inventory.AddInventory(obj);
+    }
     public Vector2Int GetChunkSize()
     {
         return chunkSize;

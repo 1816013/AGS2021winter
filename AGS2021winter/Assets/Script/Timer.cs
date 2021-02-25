@@ -9,8 +9,6 @@ public class Timer : MonoBehaviour
     [SerializeField]
     [Header("------制限時間指定（秒）------")]
     public float limit;
-    private int minutes;
-    private int seconds;
     public Text text;
     float time = 0.0f;
     // Start is called before the first frame update

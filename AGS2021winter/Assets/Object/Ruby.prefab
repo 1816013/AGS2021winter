@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2636025910482932266}
   - component: {fileID: 7833821511444096595}
   - component: {fileID: -1630959554113397399}
-  - component: {fileID: -1008963349296921549}
+  - component: {fileID: 8344146940706532867}
   m_Layer: 0
   m_Name: Ruby
   m_TagString: object
@@ -64,18 +64,7 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: -1630959554113397399}
-          m_MethodName: OnCursorAct
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -104,7 +93,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakTime_: 2
---- !u!114 &-1008963349296921549
+  id: 0
+  breackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8344146940706532867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4565b5ebade8f0c42a1ab7f0f386faf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockData:
+    name: 
+    score: 0
+    cost: 0
 --- !u!1 &7472047115795826792
 GameObject:
   m_ObjectHideFlags: 0

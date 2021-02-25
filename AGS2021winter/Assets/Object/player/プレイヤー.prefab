@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5688347518433677379}
   - component: {fileID: 5688347518433677378}
   - component: {fileID: 7496311465838296019}
+  - component: {fileID: 9093149305969586380}
   m_Layer: 0
   m_Name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
   m_TagString: Untagged
@@ -108,6 +109,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f34bb07f6341a41a2966136158654e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchMargine: 200
+--- !u!114 &9093149305969586380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688347518433677375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee82a642f3ff7b846954db93ff5e5cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCost: 15
 --- !u!1 &5688347519010264437
 GameObject:
   m_ObjectHideFlags: 0

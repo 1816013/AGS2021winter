@@ -7,11 +7,11 @@ public class MapGenerator : MonoBehaviour
 {
     enum BlockID
     {
-        air,
-        rail,
+        dirt,
         stone,
         gem,
-        dirt,
+        air,
+        rail,
         bedrock,
         treasure,
         max
@@ -30,6 +30,8 @@ public class MapGenerator : MonoBehaviour
     GameObject chunk;
 
     BlockID[][][] mapData;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -150,6 +152,7 @@ public class MapGenerator : MonoBehaviour
 
     void MapGenerate()
     {
+        GameObject gameObject = null;
         for (int x = 0; x < mapSize.x; x++)
         {
             for (int y = 0; y < mapSize.y; y++)
@@ -160,22 +163,24 @@ public class MapGenerator : MonoBehaviour
                                             (y * (bounds.size.y * scl)),
                                             (mapSize.z * (bounds.size.x * scl)) / 2 - (z * (bounds.size.z * scl)) - 1);
                     var id = mapData[x][y][z];
-                    GameObject gameObject = null;
                     switch (id)
                     {
                         case BlockID.air:
                             break;
                         case BlockID.stone:
                             gameObject = Instantiate(block[0], pos, Quaternion.identity);
-                            gameObject.transform.parent = chunk.transform;
+                            gameObject.transform.SetParent(chunk.transform);
+                            gameObject.GetComponent<BreakBlock>().Init(CallBack);
                             break;
                         case BlockID.gem:
                             gameObject = Instantiate(block[2], pos, Quaternion.identity);
                             gameObject.transform.parent = chunk.transform;
+                            gameObject.GetComponent<BreakBlock>().Init(CallBack);
                             break;
                         case BlockID.dirt:
                             gameObject = Instantiate(block[3], pos, Quaternion.identity);
                             gameObject.transform.parent = chunk.transform;
+                            gameObject.GetComponent<BreakBlock>().Init(CallBack);
                             break;
                         case BlockID.bedrock:
                             gameObject = Instantiate(block[4], pos, Quaternion.identity);
@@ -217,5 +222,9 @@ public class MapGenerator : MonoBehaviour
         var tmpstone = block[0].transform.Find("default").gameObject;
         Debug.Log(tmpstone);
         bounds = tmpstone.GetComponent<MeshFilter>().sharedMesh.bounds;
+    }
+    public void CallBack(BreakBlock.AddInventory inventory)
+    {
+        mapCtl.GetBlockData(inventory.obj);
     }
 }
