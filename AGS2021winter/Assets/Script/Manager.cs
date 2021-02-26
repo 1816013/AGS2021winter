@@ -18,4 +18,8 @@ public class Manager : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void OnClickTitleButton()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
 }
