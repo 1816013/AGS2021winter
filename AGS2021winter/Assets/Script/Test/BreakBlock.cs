@@ -13,6 +13,9 @@ public class BreakBlock : MonoBehaviour
     private bool breackFlag_;
     public int id;
 
+    private GameObject playerObj_;
+    private const int distance = 8;
+
     //コールバック前準備
     [Serializable] private class BreackEvent : UnityEvent<AddInventory> { }
     [SerializeField] private BreackEvent breackEvent = null;
@@ -31,25 +34,33 @@ public class BreakBlock : MonoBehaviour
     void Start()
     {
         IsDone = false;
+        playerObj_ = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     public void BreackUpdate()
     {
+        // プレイヤーとの距離で計算
+        if (distance < Vector3.Distance(this.transform.position, playerObj_.transform.position))
+        {
+            return;
+        }
         // クリックしている間のみ加算
-        if(Input.GetMouseButton(0) && onCursor_)
+        if (Input.GetMouseButton(0) && onCursor_)
         {
             frame_ += Time.deltaTime;
         }
         else
         {
             frame_ = 0.0f;
+           // player_.SetIsDig(false);
         }
         // 一定時間クリックしていたら破壊
         if (frame_ > breakTime_)
         {
             BreackFunc();
             this.gameObject.SetActive(false);
+            
         }
     }
 
@@ -58,7 +69,6 @@ public class BreakBlock : MonoBehaviour
         if (!IsDone)
         {
             AddInventory add = new AddInventory(this.gameObject);
-
             IsDone = true;
             breackEvent.Invoke(add);
         }
@@ -68,7 +78,7 @@ public class BreakBlock : MonoBehaviour
     public void OnCursorAct()
     {
         onCursor_ = true;
-        //Debug.Log("hit");
+        //Debug.Log("hit");                 
     }
     // ブロックからカーソルが外れたとき
     public void ExitCursorAct()
