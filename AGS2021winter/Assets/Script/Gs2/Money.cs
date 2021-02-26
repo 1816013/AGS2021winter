@@ -16,8 +16,7 @@ public class Money : MonoBehaviour
     private Gs2.Unity.Client gs2 = Login.gs2;
     private GameSession gameSession = Login.session;
 
-    public Text nMoney;
-    public Text yMoney;
+    public Text Money_text;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +47,7 @@ public class Money : MonoBehaviour
                         Debug.Log(r.Result.Item.Paid); // integer 有償課金通貨所持量
                         Debug.Log(r.Result.Item.Free); // integer 無償課金通貨所持量
                         Debug.Log(r.Result.Item.UpdatedAt); // long 最終更新日時
-                        nMoney.text = r.Result.Item.Free.ToString();
-                        yMoney.text = r.Result.Item.Paid.ToString();
+                        Money_text.text ="×"+ (r.Result.Item.Free + r.Result.Item.Paid).ToString();
                     }
                 },
                 gameSession,    // GameSession ログイン状態を表すセッションオブジェクト
