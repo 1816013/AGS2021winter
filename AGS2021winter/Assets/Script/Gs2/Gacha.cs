@@ -59,7 +59,7 @@ public class Gacha : MonoBehaviour
                },
                gameSession,    // GameSession ログイン状態を表すセッションオブジェクト
                "gemGacha",   //  ネームスペース名
-               "gem1",   //  商品名
+               "gem1",      //  商品名
                "gemGacha"   //  陳列商品ID
            );
         }

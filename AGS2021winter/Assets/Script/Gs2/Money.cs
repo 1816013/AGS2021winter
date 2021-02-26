@@ -58,6 +58,10 @@ public class Money : MonoBehaviour
 
         }
     }
+    public void MoneyUpdate()
+    {
+        StartCoroutine(MenueSetUp());
+    }
     private void OnApplicationQuit()
     {
         Login.profile.Finalize();

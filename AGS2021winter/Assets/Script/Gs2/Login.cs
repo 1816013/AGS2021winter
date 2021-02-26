@@ -31,6 +31,7 @@ public class Login : MonoBehaviour
     public static GameSession session = null;
     public static Gs2.Unity.Client gs2 = null;
     public static Profile profile = null;
+    public static StampSheetStateMachine machine=null;
     public GameObject titleScene;
     void Start()
     {
