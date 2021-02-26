@@ -38,7 +38,7 @@ public class Login : MonoBehaviour
     // TODO: 本来は各プラットフォームに対応した処理が必要
     private string filePath = "./accountData/accountData.bad";
 #endif
-   
+  
     private bool isSatart = false;
     //ログイン状態を表すゲームセッションオブジェクト
     public static GameSession session = null;
@@ -62,7 +62,7 @@ public class Login : MonoBehaviour
         {
             yield break;
         }
-
+        Debug.Log(filePath);
         // GS2 SDK のクライアントを初期化
 
 
