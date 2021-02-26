@@ -24,8 +24,21 @@ public class Login : MonoBehaviour
 
     // アカウントの認証結果に付与する署名を計算するのに使用する暗号鍵
     public string accountEncryptionKeyId;
+#if !UNITY_EDITOR && UNITY_ANDROID
+    private string filePath;
+        using (var unityPlayer = new AndroidJavaClass("com.DefaultCompany.AGS2021winter"))
+        using (var currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+        using (var getFilesDir = currentActivity.Call<AndroidJavaObject>("getFilesDir"))
+        {
+            string secureDataPathForAndroid = getFilesDir.Call<string>("getCanonicalPath");
+            filePath = secureDataPathForAndroid;
+        }
 
+#else
+    // TODO: 本来は各プラットフォームに対応した処理が必要
     private string filePath = "./accountData/accountData.bad";
+#endif
+   
     private bool isSatart = false;
     //ログイン状態を表すゲームセッションオブジェクト
     public static GameSession session = null;

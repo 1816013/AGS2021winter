@@ -69,7 +69,7 @@ public class Result : MonoBehaviour
         "55dce6d7-7c3a-4539-8c4b-4f3e52093d2f"
         );
         yield return result;
-
+       
         UnityEvent<Gs2Exception> m_events = new OnErrorCallback();
         m_events.AddListener(OnError);
         yield return Login.machine.Execute(m_events);
