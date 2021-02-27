@@ -750,10 +750,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 2ba7cbd2-fc40-4384-b86d-bd005b4c2ffa
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: AGS2021winter
+  organizationId: yuy01227182
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
