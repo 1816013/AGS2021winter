@@ -38,6 +38,10 @@ public class InventorySystem : MonoBehaviour
         {
             return;
         }
+        if(!isCarry(block.blockData.cost))
+        {
+            return;
+        }
         nowCost += block.blockData.cost;
         score += block.blockData.score;
         if(stackCnt.ContainsKey(block.blockData.name))
@@ -72,8 +76,12 @@ public class InventorySystem : MonoBehaviour
         nowCost = 0;
         score = 0;
     }
-    public bool isCarry()
+    public int GetNowCost()
     {
-        return (maxCost > nowCost);
+        return nowCost;
+    }
+    public bool isCarry(int cost)
+    {
+        return (maxCost > nowCost+cost);
     }
 }
