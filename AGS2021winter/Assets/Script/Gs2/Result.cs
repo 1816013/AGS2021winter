@@ -79,4 +79,13 @@ public class Result : MonoBehaviour
         money.MoneyUpdate();
 
     }
+    private void OnApplicationQuit()
+    {
+        if (Login.profile != null)
+        {
+            Login.profile.Finalize();
+        }
+
+    }
+
 }

@@ -215,7 +215,10 @@ public class Login : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        Login.profile.Finalize();
+        if(Login.profile!=null)
+        {
+            Login.profile.Finalize();
+        }
 
     }
 
