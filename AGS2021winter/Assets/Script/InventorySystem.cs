@@ -38,7 +38,7 @@ public class InventorySystem : MonoBehaviour
         {
             return;
         }
-        if(!isCarry(block.blockData.cost))
+        if(!isCarry(block.blockData.cost)&& block.blockData.name != "Treasure")
         {
             return;
         }
@@ -52,7 +52,7 @@ public class InventorySystem : MonoBehaviour
         {
             stackCnt.Add(block.blockData.name,1);
         }
-        if(block.blockData.name == "stone")
+        if(block.blockData.name == "gem")
         {
             finFlag = true;
         }
