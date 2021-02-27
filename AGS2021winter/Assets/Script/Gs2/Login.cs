@@ -204,10 +204,11 @@ public class Login : MonoBehaviour
         {
             StartCoroutine(CreateAndLoginAction());
         }
-        //if (isSatart)
-        //{
-        //    SceneManager.LoadScene("testNext");
-        //}
+        if (isSatart)
+        {
+            //SceneManager.LoadScene("testNext");
+
+        }
     }
     public static void OnError(Exception e)
     {
