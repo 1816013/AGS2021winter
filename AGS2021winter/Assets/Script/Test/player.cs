@@ -61,7 +61,7 @@ public class player : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (Application.isEditor)
+        if (Application.isEditor||Application.platform==RuntimePlatform.WindowsPlayer)
         {
             if (Input.GetMouseButton(0))
             {
@@ -94,7 +94,7 @@ public class player : MonoBehaviour
     Vector2 GetAxisRawByInput()
     {
         Vector2 ret = Vector2.zero;
-        if (Application.isEditor)
+        if (Application.isEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             ret.x = Input.GetAxisRaw("Horizontal");
             ret.y = Input.GetAxisRaw("Vertical");

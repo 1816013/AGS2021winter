@@ -27,6 +27,7 @@ public class ObjCtr : MonoBehaviour
             if (block != null&& block.isActiveAndEnabled == true)
             {
                 block.BreackUpdate();
+                
             }
         }
     }

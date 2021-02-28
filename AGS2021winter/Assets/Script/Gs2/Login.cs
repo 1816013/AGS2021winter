@@ -54,7 +54,7 @@ public class Login : MonoBehaviour
 
 #else
         // TODO: 本来は各プラットフォームに対応した処理が必要
-    filePath = "./accountData/accountData.bad";
+    filePath = "./accountData.bad";
 #endif
 
     Debug.Log(filePath);
