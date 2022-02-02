@@ -45,6 +45,8 @@ public class Gacha : MonoBehaviour
                    {
                        // エラーが発生した場合に到達
                        // r.Error は発生した例外オブジェクトが格納されている
+
+
                        Login.OnError(r.Error);
                    }
                    else

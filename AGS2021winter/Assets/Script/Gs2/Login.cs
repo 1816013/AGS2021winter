@@ -109,7 +109,7 @@ public class Login : MonoBehaviour
 
                 yield return current;
 
-                // コルーチンの実行が終了した時点で、コールバックは必ず呼ばれています
+                // コルーチンの実行が終了した時点で、コールバックは必ず呼ばる
 
                 // アカウントが作成できなかった場合は終了
                 if (asyncResult.Error != null)
